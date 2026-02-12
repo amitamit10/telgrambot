@@ -125,7 +125,3 @@ When a new user messages the bot for the first time, they are prompted to enter 
 - Only users in `AUTHORIZED_USERS` can run monitoring commands.
 - Only users in `ADMIN_USERS` can run destructive commands (`/reboot`, `/shutdown`).
 - The terminal panel runs **locally on the server only** — not accessible via Telegram.
-```
-bot.log
-config.py
-```
