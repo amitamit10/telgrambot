@@ -1,11 +1,9 @@
-# רשימת משתמשים מורשים
 AUTHORIZED_USERS = set([
-    123456789,  # החלף ב-ID שלך
+    123456789,
 ])
 
-# רשימת אדמינים
 ADMIN_USERS = set([
-    123456789,  # החלף ב-ID שלך
+    123456789,
 ])
 
 def is_authorized(user_id: int) -> bool:
