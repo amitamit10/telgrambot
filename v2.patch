@@ -1,0 +1,16 @@
+Subject: [PATCH] v2
+---
+Index: config.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/config.py b/config.py
+--- a/config.py	(revision 98ce93ddd846ce437b32cd0511f5cd2eec4fcf9f)
++++ b/config.py	(revision 89820bc5ca9c30cdea34bf7865ca9af75376d195)
+@@ -1,2 +1,2 @@
+ BOT_TOKEN = "api token"
+-#put here your api key here ?
+\ No newline at end of file
++#put here your api key here
+\ No newline at end of file
