@@ -142,9 +142,3 @@ New users are prompted to enter their name when they first message the bot. Once
 import os
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
 ```
-
----
-
-## License
-
-MIT — feel free to use, modify, and distribute.
