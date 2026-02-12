@@ -1,1 +1,2 @@
-BOT_TOKEN = "7998515967:AAGmHTHXYYpyGLzY0I0gjhKlqoi03VCe9U8"
+BOT_TOKEN = "api token"
+#put here your api kiy
