@@ -1,2 +1,2 @@
 BOT_TOKEN = "api token"
-#put here your api key here ?
+#put here your api key here
