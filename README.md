@@ -1,6 +1,6 @@
 # 🤖 Server Monitor Bot
 
-A Telegram bot for real-time Linux server monitoring and management. Monitor CPU, RAM, disk, network, and services — all from your Telegram app.
+A Telegram bot for real-time Linux server monitoring, management, and file transfers — all from your Telegram app.
 
 ---
 
@@ -11,9 +11,11 @@ A Telegram bot for real-time Linux server monitoring and management. Monitor CPU
 - 🔥 Top resource-consuming processes
 - 🛠 Service status checks (SSH, Nginx, Docker)
 - 💾 Disk usage breakdown
+- 📁 File transfer support
 - 🔐 Role-based access control (Users & Admins)
 - 🖥 Terminal control panel for live user management
 - 📜 Log viewer via Telegram
+- 🎛 Inline button menu for easy navigation
 
 ---
 
@@ -49,8 +51,8 @@ pip install python-telegram-bot psutil
 1. **Clone the repository**
 
 ```bash
-git clone <your-repo-url>
-cd <repo-folder>
+git clone https://github.com/amitamit10/telgrambot.git
+cd telgrambot
 ```
 
 2. **Configure the bot token**
@@ -61,21 +63,7 @@ Open `config.py` and replace the placeholder with your bot token from [@BotFathe
 BOT_TOKEN = "your-telegram-bot-token-here"
 ```
 
-3. **Set your Telegram user ID**
 
-Open `auth.py` and replace `123456789` with your actual Telegram user ID in both sets:
-
-```python
-AUTHORIZED_USERS = set([
-    YOUR_TELEGRAM_ID,
-])
-
-ADMIN_USERS = set([
-    YOUR_TELEGRAM_ID,
-])
-```
-
-> 💡 You can find your Telegram ID by messaging [@userinfobot](https://t.me/userinfobot).
 
 4. **Run the bot**
 
@@ -87,11 +75,11 @@ python main.py
 
 ## Bot Commands
 
-### General Commands (All authorized users)
+### General (All authorized users)
 
 | Command | Description |
 |---|---|
-| `/start` | Show welcome message and command list |
+| `/start` | Show welcome message & inline menu |
 | `/ping` | Check if the bot is alive |
 | `/status` | CPU, RAM, disk usage & uptime |
 | `/system` | Top 5 CPU-consuming processes |
@@ -99,7 +87,7 @@ python main.py
 | `/storage` | Total, used, and free disk space |
 | `/services` | Status of SSH, Nginx, and Docker |
 
-### Admin Commands
+### Admin Only
 
 | Command | Description |
 |---|---|
@@ -112,7 +100,7 @@ python main.py
 
 ## Terminal Control Panel
 
-When the bot is running, a local terminal panel is available for managing users in real time:
+A local terminal panel runs alongside the bot for real-time user management:
 
 ```
 panel > add <user_id>       # Authorize a user
@@ -120,6 +108,7 @@ panel > addadmin <user_id>  # Add a user as admin (also authorizes them)
 panel > remove <user_id>    # Remove user/admin access
 panel > list                # Show all authorized users and admins
 panel > clear               # Clear the terminal screen
+panel > help                # Show available commands
 panel > exit                # Close the panel
 ```
 
@@ -127,18 +116,16 @@ panel > exit                # Close the panel
 
 ## User Registration Flow
 
-New users are prompted to enter their name when they first message the bot. Once registered, they can use commands if their ID has been added to the authorized list via the terminal panel or `auth.py`.
+When a new user messages the bot for the first time, they are prompted to enter their name. Once registered, they can use commands if their ID has been added to the authorized list via the terminal panel or `auth.py`.
 
 ---
 
 ## Security Notes
 
-- Only users listed in `AUTHORIZED_USERS` can run monitoring commands.
+- Only users in `AUTHORIZED_USERS` can run monitoring commands.
 - Only users in `ADMIN_USERS` can run destructive commands (`/reboot`, `/shutdown`).
-- The terminal panel runs locally on the server — it is not accessible via Telegram.
-- **Never commit your bot token to version control.** Consider using environment variables:
-
-```python
-import os
-BOT_TOKEN = os.environ.get("BOT_TOKEN")
+- The terminal panel runs **locally on the server only** — not accessible via Telegram.
+```
+bot.log
+config.py
 ```
