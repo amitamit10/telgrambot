@@ -1,6 +1,2 @@
-import os
-
-BOT_TOKEN = os.getenv("BOT_TOKEN")
-
-if not BOT_TOKEN:
-    raise ValueError("BOT_TOKEN is not set in environment variables")
+BOT_TOKEN = input("Enter your bot token: ").strip()
+#api key here tt
